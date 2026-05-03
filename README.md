@@ -18,11 +18,6 @@ The final phase shifted focus from theoretical derivation to the practical chall
     *   **Extremal Principles**: Variational approaches to mapping, including Bieberbach's area-minimizing principle and the Bergman kernel.
 *   **Deliverables**: [Final Thesis Report](BTP-2/final_report.tex) and original TikZ-based mathematical illustrations.
 
-## Project Structure
-*   `BTP-1/`: Foundational theory, early reports, and preliminary presentations.
-*   `BTP-2/`: Final thesis work, numerical algorithms, and variational methods.
-*   **References**: Key reference books (Kythe and Trefethen) are included in the root directory.
-
 ## Compile
 
 To generate the PDF from LaTex on Linux:
@@ -32,4 +27,4 @@ pdflatex -interaction=nonstopmode BTP-2/final_report.tex 2>&1 | tail -20
 ```
 
 ---
-*Submitted for the degree of Bachelor of Science (Honours) in Mathematics and Computing, Department of Mathematics, IIT Kharagpur.*
+*Submitted for the degree of Bachelor of Science (Honours) in Mathematics and Computing, Department of Mathematics, IIT Kharagpur (2025--2026).*
