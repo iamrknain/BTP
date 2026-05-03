@@ -4,7 +4,7 @@
 *.toc
 *.out
 *.synctex.gz
-*.pdf
+# *.pdf
 *.fdb_latexmk
 *.fls
 texput.log
