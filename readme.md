@@ -1,0 +1,1 @@
+pdflatex -interaction=nonstopmode final_report.tex 2>&1 | tail -20

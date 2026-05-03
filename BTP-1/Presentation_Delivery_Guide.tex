@@ -1,0 +1,480 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+% Color definitions
+\definecolor{slidecolor}{RGB}{52,152,219}
+\definecolor{emphasiscolor}{RGB}{22,160,133}
+\definecolor{quotecolor}{RGB}{249,249,249}
+\definecolor{tipcolor}{RGB}{213,244,230}
+
+% Section formatting
+\titleformat{\section}
+  {\normalfont\LARGE\bfseries\color{slidecolor}}{\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\Large\bfseries\color{emphasiscolor}}{\thesubsection}{1em}{}
+
+% Header and footer
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{\textbf{Slide-by-Slide Delivery Guide - Conformal Mappings}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% Custom boxes
+\newtcolorbox{quotebox}{
+  colback=quotecolor,
+  colframe=slidecolor,
+  boxrule=0pt,
+  leftrule=5pt,
+  arc=0pt,
+  left=12pt,
+  right=12pt,
+  top=8pt,
+  bottom=8pt
+}
+
+\newtcolorbox{tipbox}{
+  colback=tipcolor,
+  colframe=emphasiscolor,
+  boxrule=1.5pt,
+  arc=3pt,
+  left=12pt,
+  right=12pt,
+  top=8pt,
+  bottom=8pt
+}
+
+\begin{document}
+
+\begin{center}
+{\Huge \textbf{SLIDE-BY-SLIDE DELIVERY GUIDE}}\\[10pt]
+{\Large Computation of Conformal Mappings Presentation}\\[8pt]
+{\large \textbf{BTP Defense TODAY at 1:00 PM - 60\% Marks}}
+\end{center}
+
+\vspace{10pt}
+\hrule
+\vspace{20pt}
+
+\section*{SLIDE 1: Title Slide}
+
+\subsection*{What to Say:}
+\begin{quotebox}
+\large\textit{``Good afternoon professors. Today I'll present my work on the Computation of Conformal Mappings, specifically focusing on the Schwarz-Christoffel transformation. This is a powerful mathematical tool that bridges pure theory and practical engineering applications.''}
+\end{quotebox}
+
+\subsection*{Body Language:}
+\begin{itemize}[leftmargin=*]
+    \item Stand confidently
+    \item Make eye contact with all professors
+    \item Pause after greeting
+\end{itemize}
+
+\vspace{10pt}
+\hrule
+\vspace{10pt}
+
+\section*{SLIDE 2: Why Conformal Mapping?}
+
+\subsection*{What to Say:}
+\begin{quotebox}
+\large\textit{``Let me start with a fundamental question: Why do we need conformal mapping? In engineering and physics, we often face problems with irregular, complex boundaries---think of airflow around an oddly-shaped wing or heat distribution in an irregular metal plate.}
+
+\textit{Traditional analytical methods only work in simple geometries like circles or rectangles. Conformal mapping is the \textbf{bridge} that transforms these complex domains into simple ones while preserving the governing equations. The diagram on the right shows this visually---we solve the problem in the simple Z-plane and map the solution back.''}
+\end{quotebox}
+
+\subsection*{Key Points to Emphasize:}
+\begin{itemize}[leftmargin=*]
+    \item Use the diagram---point to it while explaining
+    \item Say ``This is \textbf{THE} solution to an otherwise intractable problem''
+    \item Pause after ``preserving governing equations''
+    \item Connect to real-world problems (airflow, heat transfer)
+\end{itemize}
+
+\vspace{10pt}
+\hrule
+\vspace{10pt}
+
+\section*{SLIDE 3: The Riemann Mapping Theorem}
+
+\subsection*{What to Say:}
+\begin{quotebox}
+\textit{``The theoretical foundation is the Riemann Mapping Theorem, proved by Riemann in 1851 and rigorously established by Schwarz and Hilbert.}
+
+\textit{The theorem states: \textbf{Any simply connected domain---no matter how irregular---can be conformally mapped to the unit disk.} This is profound because it guarantees existence. However, and this is crucial, it doesn't tell us \textbf{how} to construct the mapping. That's where Schwarz-Christoffel comes in.''}
+\end{quotebox}
+
+\subsection*{Key Points to Emphasize:}
+\begin{itemize}[leftmargin=*]
+    \item Point to the diagram showing the irregular domain mapping to the disk
+    \item Emphasize ``existence vs.\ construction''---this sets up the need for SC transformation
+    \item Make clear the historical significance (1851, later proved rigorously)
+    \item Connect: ``The theorem says it CAN be done, SC shows us HOW''
+\end{itemize}
+
+\vspace{10pt}
+\hrule
+\vspace{10pt}
+
+\section*{SLIDE 4: Foundations of Complex Analysis}
+
+\subsection*{What to Say:}
+\begin{quotebox}
+\textit{``To understand conformal mappings, we need three key concepts from complex analysis:}
+
+\textit{First, \textbf{analytic functions}---functions where the derivative exists everywhere in a region. Second, the \textbf{Cauchy-Riemann equations}, which are the necessary and sufficient conditions for analyticity. And third, \textbf{harmonic functions}---the real and imaginary parts satisfy Laplace's equation.}
+
+\textit{This connection to Laplace's equation is why conformal mapping works for problems in electrostatics, fluid flow, and heat transfer---they're all governed by Laplace's equation.''}
+\end{quotebox}
+
+\subsection*{Key Points to Emphasize:}
+\begin{itemize}[leftmargin=*]
+    \item Don't rush this slide---it's foundational
+    \item Point to the visual showing orthogonal grids
+    \item Emphasize the connection: analytic $\rightarrow$ harmonic $\rightarrow$ Laplace's equation
+    \item If time permits, mention: ``The orthogonality shown here is a direct consequence of the Cauchy-Riemann equations''
+\end{itemize}
+
+\vspace{10pt}
+\hrule
+\vspace{10pt}
+
+\section*{SLIDE 5: Conformal Mapping Definition}
+
+\subsection*{What to Say:}
+\begin{quotebox}
+\textit{``What makes a mapping conformal? It must preserve angles---both magnitude and orientation. The sufficient condition is elegant: if $f(z)$ is analytic and its derivative is non-zero, then $f$ is conformal.}
+
+\textit{Look at the diagram: two curves intersect at angle $\alpha$ in the z-plane. After the conformal map $f(z)$, they still intersect at the same angle $\alpha$ in the w-plane. This angle preservation is what allows physical laws to remain unchanged under the transformation.''}
+\end{quotebox}
+
+\subsection*{Key Points to Emphasize:}
+\begin{itemize}[leftmargin=*]
+    \item Visual aid: Trace the angle with your hand on the diagram
+    \item Emphasize the condition: $f'(z) \neq 0$ (local univalence)
+    \item Connect to physics: ``Angle preservation means the form of PDEs is preserved''
+    \item Mention the key property box on orthogonality if there's time
+\end{itemize}
+
+\vspace{10pt}
+\hrule
+\vspace{10pt}
+
+\section*{SLIDE 6: Bilinear (Möbius) Transformation}
+
+\subsection*{What to Say:}
+\begin{quotebox}
+\textit{``Before tackling polygons, let's look at the simplest conformal map: the Bilinear or Möbius transformation, $w = \frac{az+b}{cz+d}$.}
+
+\textit{Its superpower is that it maps circles and lines to circles and lines. This makes it perfect for preliminary transformations---for instance, mapping the upper half-plane to the unit disk. Any Bilinear transformation can be decomposed into translation, inversion, and rotation.''}
+\end{quotebox}
+
+\subsection*{Key Points to Emphasize:}
+\begin{itemize}[leftmargin=*]
+    \item Keep it brief---this is a stepping stone to SC
+    \item Point to the diagram showing circle/line preservation
+    \item Mention the condition: $ad - bc \neq 0$ (ensures invertibility)
+    \item Connect: ``We'll use this as a building block in more complex mappings''
+\end{itemize}
+
+\vspace{10pt}
+\hrule
+\vspace{10pt}
+
+\section*{SLIDE 7: Schwarz-Christoffel Transformation - Purpose}
+
+\subsection*{What to Say:}
+\begin{quotebox}
+\textit{``Now we arrive at the main contribution: the Schwarz-Christoffel transformation. It maps the upper half-plane onto the interior of \textbf{any} simple polygon.}
+
+\textit{The formula is shown here. The key insight is in the product term: each factor $(z - x_k)^{-\alpha_k}$ controls what happens at a vertex. The points $x_k$ on the real axis map to the polygon vertices, and $\alpha_k$ are the exterior angles.''}
+\end{quotebox}
+
+\subsection*{Key Points to Emphasize:}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Slow down here---this is the core}
+    \item Write or point to the formula: $\frac{dw}{dz} = A \prod (z - x_k)^{-\alpha_k}$
+    \item Explain each component:
+    \begin{itemize}
+        \item $x_k$: pre-images on real axis
+        \item $\alpha_k$: exterior angle parameters
+        \item $A, B$: normalization constants
+    \end{itemize}
+    \item Emphasize: ``This explicit formula is what makes SC so powerful''
+\end{itemize}
+
+\vspace{10pt}
+\hrule
+\vspace{10pt}
+
+\section*{SLIDE 8: Schwarz-Christoffel Derivation Concept}
+
+\subsection*{What to Say:}
+\begin{quotebox}
+\textit{``How does this formula work? The elegant idea is to control the \textbf{argument} (angle) of $\frac{dw}{dz}$ as $z$ moves along the real axis.}
+
+\textit{As $z$ crosses a point $x_k$, the factor $(z - x_k)^{-\alpha_k}$ causes the argument to change by exactly $\alpha_k\pi$---the exterior angle needed at that vertex. The diagram shows this: as $z$ moves along the real axis in the upper half-plane, $w$ traces the polygon boundary, turning by the correct angle at each vertex.''}
+\end{quotebox}
+
+\subsection*{Key Points to Emphasize:}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{This is the `aha' moment---make it clear!}
+    \item Use the diagram extensively---show the correspondence
+    \item Explain the argument change: ``When $z$ crosses $x_k$ from left to right, $\arg(z - x_k)$ changes by $-\pi$, so $\arg((z - x_k)^{-\alpha_k})$ changes by $\alpha_k\pi$''
+    \item Connect boundary mapping: ``Real axis $\rightarrow$ polygon boundary''
+    \item Emphasize: ``This is the genius of Schwarz and Christoffel---encoding geometry in the derivative''
+\end{itemize}
+
+\vspace{10pt}
+\hrule
+\vspace{10pt}
+
+\section*{SLIDE 9: Schwarz-Christoffel Construction Steps}
+
+\subsection*{What to Say:}
+\begin{quotebox}
+\textit{``To construct an SC mapping, we follow four steps:}
+
+\textit{1. Identify where on the real axis each vertex maps to---these are the $x_k$ points}
+
+\textit{2. Determine the exterior angles from the polygon's interior angles using $\alpha_k = 1 - \theta_k/\pi$}
+
+\textit{3. Construct the product ensuring each factor contributes the correct turn}
+
+\textit{4. Integrate to get $w$, where $A$ and $B$ control scale, rotation, and position.''}
+\end{quotebox}
+
+\subsection*{Key Points to Emphasize:}
+\begin{itemize}[leftmargin=*]
+    \item Go through each step methodically
+    \item Point to the diagram showing the UHP and polygon
+    \item If asked about the integral: ``The integral often involves elliptic functions, which is why numerical methods are typically used in practice''
+    \item Mention the constraint: $\sum\alpha_k = 2$ (polygon closure condition)
+\end{itemize}
+
+\vspace{10pt}
+\hrule
+\vspace{10pt}
+
+\section*{SLIDE 10: Rectangle Mapping Example}
+
+\subsection*{What to Say:}
+\begin{quotebox}
+\textit{``Let's see a concrete example: mapping to a rectangle. All four interior angles are $\pi/2$, so all exterior angle parameters $\alpha_k = 1 - (\pi/2)/\pi = 1/2$.}
+
+\textit{The differential becomes $\frac{dw}{dz} = \frac{A}{\sqrt{(z-x_1)(z-x_2)(z-x_3)(z-x_4)}}$. This integral is an \textbf{elliptic integral}---it cannot be expressed in elementary functions. This shows that even for a simple rectangle, we need special functions or numerical methods.''}
+\end{quotebox}
+
+\subsection*{Key Points to Emphasize:}
+\begin{itemize}[leftmargin=*]
+    \item Point out the visual: Show how the UHP maps to the rectangle
+    \item Highlight the four vertices and their pre-images
+    \item Emphasize: ``Even simple polygons lead to complex integrals''
+    \item If time permits: ``The ratio of rectangle sides depends on the ratio of complete elliptic integrals''
+\end{itemize}
+
+\vspace{10pt}
+\hrule
+\vspace{10pt}
+
+\section*{SLIDE 11: Schwarz-Christoffel More Examples}
+
+\subsection*{What to Say:}
+\begin{quotebox}
+\textit{``Slide 11 shows three more examples demonstrating the versatility of SC mappings:}
+
+\textit{\textbf{Example 1}: The unit disk---while typically handled by Bilinear transformations, it shows the connection between different conformal maps.}
+
+\textit{\textbf{Example 2}: A semi-infinite strip where the integral simplifies to $\cosh^{-1}(z)$, giving us a closed-form solution.}
+
+\textit{\textbf{Example 3}: A triangular region with specific angles $\pi/4, \pi/4, \pi/2$, showing how different angle combinations affect the formula.''}
+\end{quotebox}
+
+\subsection*{Key Points to Emphasize:}
+\begin{itemize}[leftmargin=*]
+    \item Don't linger---these are for completeness
+    \item Mention that some cases yield elementary functions (strip), others don't (general triangle)
+    \item If asked: ``The semi-infinite strip is important for channel flow problems''
+\end{itemize}
+
+\vspace{10pt}
+\hrule
+\vspace{10pt}
+
+\section*{SLIDE 12: Real-World Applications}
+
+\subsection*{What to Say:}
+\begin{quotebox}
+\textit{``Why does this matter? Conformal mapping has revolutionized multiple fields:}
+
+\textit{In \textbf{fluid dynamics}, the Joukowsky transformation maps circles to airfoil shapes, enabling the calculation of lift. In \textbf{electrostatics}, it solves for field lines around complex conductor shapes. In \textbf{heat transfer}, it analyzes temperature distributions in irregular domains. And in modern \textbf{computational engineering}, it generates high-quality grids for numerical simulations.''}
+\end{quotebox}
+
+\subsection*{Key Points to Emphasize:}
+\begin{itemize}[leftmargin=*]
+    \item Be enthusiastic here---show real-world impact!
+    \item Point to each application icon in the diagram
+    \item Connect to the central image showing the five applications
+    \item If time permits, elaborate on one: ``In aerodynamics, conformal mapping was crucial before CFD---it gave analytical predictions of lift forces''
+\end{itemize}
+
+\vspace{10pt}
+\hrule
+\vspace{10pt}
+
+\section*{SLIDE 13: Conclusion and Future Directions}
+
+\subsection*{What to Say:}
+\begin{quotebox}
+\textit{``To conclude, conformal mapping---anchored by the Riemann Mapping Theorem and made explicit through the Schwarz-Christoffel formula---provides a powerful bridge between theory and application. It transforms intractable boundary value problems into solvable ones.}
+
+\textit{Looking forward, future work includes:}
+\begin{itemize}
+    \item \textit{Validation through simulations and numerical examples}
+    \item \textit{Developing faster numerical algorithms for the parameter problem}
+    \item \textit{Advanced techniques for multiply-connected domains}
+    \item \textit{Applications to modern boundary-value problems in engineering}
+\end{itemize}
+
+\textit{The interplay between theory and computation continues to drive innovation in this field. Thank you for your attention. I'm happy to answer questions.''}
+\end{quotebox}
+
+\subsection*{Key Points to Emphasize:}
+\begin{itemize}[leftmargin=*]
+    \item Summarize the three key boxes: Theoretical Foundation, Key Transformations, Conformal Mapping
+    \item Highlight the future scope bullet points
+    \item End with confidence and openness to questions
+    \item Maintain eye contact during the closing
+\end{itemize}
+
+\vspace{10pt}
+\hrule
+\vspace{10pt}
+
+\section*{GENERAL DELIVERY TIPS}
+
+\begin{tipbox}
+\subsection*{Voice \& Pace:}
+\begin{itemize}[leftmargin=*]
+    \item Speak at 120-130 words per minute (moderate pace)
+    \item Pause after key statements (2-3 seconds)
+    \item Vary your tone---don't be monotone
+    \item Slow down for complex equations
+\end{itemize}
+\end{tipbox}
+
+\begin{tipbox}
+\subsection*{Body Language:}
+\begin{itemize}[leftmargin=*]
+    \item Stand tall, don't lean on the podium
+    \item Use hand gestures to emphasize points
+    \item Make eye contact with all professors (rotate your gaze)
+    \item Point to diagrams and equations as you discuss them
+\end{itemize}
+\end{tipbox}
+
+\begin{tipbox}
+\subsection*{Engagement Strategies:}
+\begin{itemize}[leftmargin=*]
+    \item Use the pointer/cursor to guide attention
+    \item Ask rhetorical questions: ``Why is this important?''
+    \item Connect slides: ``Building on what we just saw...''
+    \item Use transitional phrases: ``This leads us to...'', ``The key insight is...''
+\end{itemize}
+\end{tipbox}
+
+\begin{tipbox}
+\subsection*{Mathematical Rigor:}
+\begin{itemize}[leftmargin=*]
+    \item Don't skip over equations---explain at least the main SC formula in detail
+    \item If asked to derive something, confidently walk through it
+    \item Be prepared to explain any symbol or term on your slides
+    \item Have alternate explanations ready for complex concepts
+\end{itemize}
+\end{tipbox}
+
+\vspace{10pt}
+\hrule
+\vspace{10pt}
+
+\section*{SLIDE TRANSITIONS}
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Slide 1 $\rightarrow$ 2}: ``Let me begin by motivating why this topic matters...''
+    \item \textbf{Slide 2 $\rightarrow$ 3}: ``The theoretical foundation that makes all this possible is...''
+    \item \textbf{Slide 3 $\rightarrow$ 4}: ``To understand how this works, we need some complex analysis...''
+    \item \textbf{Slide 4 $\rightarrow$ 5}: ``These concepts lead us to the definition of conformal mapping...''
+    \item \textbf{Slide 5 $\rightarrow$ 6}: ``A simple but powerful example of a conformal map is...''
+    \item \textbf{Slide 6 $\rightarrow$ 7}: ``Now we're ready for the main result...''
+    \item \textbf{Slide 7 $\rightarrow$ 8}: ``But how does this formula actually work? Let's derive the concept...''
+    \item \textbf{Slide 8 $\rightarrow$ 9}: ``Let me break down the construction process...''
+    \item \textbf{Slide 9 $\rightarrow$ 10}: ``Let's make this concrete with an example...''
+    \item \textbf{Slide 10 $\rightarrow$ 11}: ``Here are additional examples showing the range of applications...''
+    \item \textbf{Slide 11 $\rightarrow$ 12}: ``All of this theory translates into powerful real-world applications...''
+    \item \textbf{Slide 12 $\rightarrow$ 13}: ``In conclusion...''
+\end{itemize}
+
+\vspace{10pt}
+\hrule
+\vspace{10pt}
+
+\section*{TIME MANAGEMENT (for $\sim$15-minute presentation)}
+
+\begin{center}
+\begin{tabular}{|l|c|}
+\hline
+\textbf{Slide} & \textbf{Time} \\
+\hline
+Slide 1 & 1 minute \\
+Slide 2 & 2 minutes \\
+Slide 3 & 1.5 minutes \\
+Slide 4 & 1.5 minutes \\
+Slide 5 & 1.5 minutes \\
+Slide 6 & 1 minute \\
+Slide 7 & 2 minutes (KEY SLIDE) \\
+Slide 8 & 2 minutes (KEY SLIDE) \\
+Slide 9 & 1.5 minutes \\
+Slide 10 & 1.5 minutes \\
+Slide 11 & 1 minute \\
+Slide 12 & 1.5 minutes \\
+Slide 13 & 1.5 minutes \\
+\hline
+\textbf{Total} & \textbf{$\sim$18 minutes} \\
+\hline
+\end{tabular}
+\end{center}
+
+\textit{Note: Adjust based on actual time limit}
+
+\vspace{10pt}
+\hrule
+\vspace{10pt}
+
+\section*{CONFIDENCE REMINDERS}
+
+\begin{tipbox}
+\begin{itemize}[leftmargin=*]
+    \item[\checkmark] You know this material deeply---you wrote a comprehensive report on it
+    \item[\checkmark] The PPT is well-structured and visually clear
+    \item[\checkmark] Your work connects theory (Riemann) $\rightarrow$ method (SC) $\rightarrow$ applications (real world)
+    \item[\checkmark] Professors want to see understanding, not perfection
+    \item[\checkmark] Pauses are powerful---they show confidence
+    \item[\checkmark] \textbf{You've got this!} \textbf{🎯}
+\end{itemize}
+\end{tipbox}
+
+\vspace{20pt}
+\begin{center}
+\rule{0.8\textwidth}{0.4pt}\\[5pt]
+\textbf{\Large END OF DELIVERY GUIDE}\\[5pt]
+\textit{Best of luck with your presentation tomorrow!}
+\end{center}
+
+\end{document}

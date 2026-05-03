@@ -1,0 +1,14 @@
+# LaTeX build artifacts
+*.aux
+*.log
+*.toc
+*.out
+*.synctex.gz
+*.pdf
+*.fdb_latexmk
+*.fls
+texput.log
+
+# Other temporary files
+.claude
+scratch_tikz.*
