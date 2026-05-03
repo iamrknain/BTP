@@ -783,9 +783,9 @@ The Riemann mapping theorem guarantees the existence and uniqueness of the solut
 \textbf{Theorem (minimum area problem):} Problem I has a unique solution \(f_0(z) = f'(z)\). The minimum is \(\pi R^2\).
 \end{theorembox}
 
-\textit{Proof.} Let \(f(z)\) be a mapping function as in the power series above, normalized such that \(f(a) = 0\) and \(f'(a) = 1\). Then the area of the mapped region \(D\) is:
+\textit{Proof.} Let \(f(z)\) be a mapping function as in the power series above, normalized such that \(f(a) = 0\) and \(f'(a) = 1\). Then the area of the image of \(D\) is:
 \begin{align*}
-\mathrm{area}(D) = \iint_{B(0,R)} |f'(z)|^2 \, dS_z
+\mathrm{area}(f(D)) = \iint_{D} |f'(z)|^2 \, dS_z
 &= \int_0^R\!\int_0^{2\pi} \bigl|f'(re^{i\theta})\bigr|^2\, r\,dr\,d\theta \\
 &= \pi R^2|a_1|^2 + \pi\sum_{n=2}^{\infty} n\,|a_n|^2 R^{2n}.
 \end{align*}
