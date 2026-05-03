@@ -1,31 +1,31 @@
 # Bachelor’s Thesis Project (BTP) - IIT Kharagpur
 
-This repository contains the full work for my **final year Bachelor’s Thesis Project (BTP)** at the **Indian Institute of Technology Kharagpur (IIT KGP)**. The project is focused on the study of **Conformal Mappings** and **Geometric Function Theory**.
+This repo contains all the work for my final year project on **Conformal Mappings** and **Geometric Function Theory** at **IIT Kharagpur**. 
 
-The work was split into two parts across two semesters, starting from basic theoretical foundations and moving into more advanced extremal principles and numerical techniques.
+The project was completed over two semesters. I started with the basic theory in the first half and moved on to more advanced extremal principles and numerical methods in the second semester.
 
-## Project Overview
+## What's inside
 
-### Part 1 (BTP-1): Theoretical Foundations
-The first semester focused on the core theory of conformal mapping. This included studying the Cauchy-Riemann equations, bilinear transformations, the Riemann Mapping Theorem, and the Schwarz-Christoffel transformation for mapping polygons.
-*   **Report**: Contains the initial theoretical groundwork.
-*   **Presentation**: Slides used for the mid-project evaluation.
+### BTP-1 (First Semester)
+This part covers the theoretical foundations—Cauchy-Riemann equations, Bilinear mappings, the Riemann Mapping Theorem, and Schwarz-Christoffel transformations.
+*   **Report**: My mid-sem report covering the foundational theory.
+*   **Presentation**: The slides I used for the mid-project evaluation.
 
-### Part 2 (BTP-2): Extremal Principles & Numerical Methods
-The second semester (the final phase) involved a deeper dive into the variational aspects of mapping.
-*   **Key Topics**: Bieberbach's minimizing principle, Bergman kernel functions, and numerical conformal mapping using the Ritz method.
-*   **Final Report**: The complete thesis report summarizing all findings.
-*   **Diagrams**: TikZ-based illustrations developed to explain mapping behaviors.
+### BTP-2 (Second Semester)
+This is the final phase of the project, focusing on extremal principles and numerical techniques.
+*   **Key Topics**: Bieberbach's minimizing principle, Bergman kernel functions, and the Ritz method.
+*   **Final Report**: The complete thesis report.
+*   **Diagrams**: All TikZ source code for the mathematical illustrations used in the report.
 
-## Repository Structure
+## Folder Structure
 
-*   `BTP-1/`: Reports and slides from the first semester.
-*   `BTP-2/`: Final thesis report, TikZ source code, and second-semester materials.
-*   `Reference Books`: Key textbooks (like Trefethen and Kythe) and research papers are available in the root directory for reference.
+*   `BTP-1/`: First-semester reports and presentation slides.
+*   `BTP-2/`: Final thesis report and TikZ diagrams.
+*   **Reference Books**: The main textbooks by Kythe and Trefethen are kept in the root directory for easy access.
 
-## Compiling the Report
+## Compiling the report
 
-The reports are written in LaTeX. To generate the PDF for the final report:
+The reports are written in LaTeX. To generate the final PDF, you can run:
 
 ```bash
 cd BTP-2
@@ -33,4 +33,4 @@ pdflatex -interaction=nonstopmode final_report.tex
 ```
 
 ---
-*Submitted as part of the requirements for the degree of Bachelor of Science (Honours) in Mathematics and Computing, Department of Mathematics, IIT Kharagpur.*
+*Submitted for the degree of Bachelor of Science (Honours) in Mathematics and Computing, IIT Kharagpur.*
