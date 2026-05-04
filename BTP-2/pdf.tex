@@ -1,0 +1,249 @@
+\documentclass[10pt, aspectratio=169]{beamer}
+
+% Standard packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,raster}
+\usepackage{tikz}
+\usetikzlibrary{calc,patterns}
+
+% Fonts: Professional pairing
+\usepackage{charter}            % Elegant Serif for math and titles
+\usepackage[scaled]{helvet}     % Modern Sans-serif for body
+\renewcommand{\familydefault}{\sfdefault} % Body is Sans-serif
+
+% Custom Color Palette (Premium)
+\definecolor{navy}{HTML}{0F172A}
+\definecolor{brightblue}{HTML}{3B82F6}
+\definecolor{offwhite}{HTML}{F8FAFC}
+\definecolor{lightblue}{HTML}{EFF6FF}
+\definecolor{textdark}{HTML}{1E293B}
+
+\setbeamercolor{background canvas}{bg=offwhite}
+\setbeamercolor{normal text}{fg=textdark}
+\setbeamercolor{frametitle}{fg=navy}
+
+% Disable navigation
+\setbeamertemplate{navigation symbols}{}
+
+% Custom Frame Title with Accent Line
+\setbeamertemplate{frametitle}{
+    \vspace{2mm}
+    \begin{beamercolorbox}[wd=\paperwidth,leftskip=1cm]{frametitle}
+        \usebeamerfont{frametitle}\insertframetitle
+    \end{beamercolorbox}
+    \vspace{-1mm}
+    \hspace{1cm}\tikz\draw[brightblue, line width=0.8pt] (0,0) -- (0.85\paperwidth,0);
+}
+
+% Smooth "Premium" Block
+\newtcolorbox{premiumbox}[2][]{
+    enhanced,
+    colback=lightblue,
+    colframe=brightblue,
+    boxrule=0pt,
+    toprule=3pt, % Solid top border as anchor
+    arc=4pt,
+    fonttitle=\bfseries\sffamily,
+    coltitle=navy,
+    title=#2,
+    attach title to upper,
+    after title={\\[1mm]},
+    left=10pt, right=10pt, top=10pt, bottom=10pt,
+    shadow={1pt}{-1pt}{0pt}{black!10!white},
+    #1
+}
+
+\begin{document}
+
+% Slide 1: Title Page (Midnight Grid Design)
+\begin{frame}[plain]
+    \begin{tikzpicture}[remember picture, overlay]
+        % Background
+        \fill[navy] (current page.north west) rectangle (current page.south east);
+        
+        % High-tech Grid
+        \draw[brightblue, opacity=0.1, step=0.5cm] (current page.north west) grid (current page.south east);
+        
+        % Text Content
+        \node[anchor=west, text=white, font=\LARGE\bfseries\rmfamily] at ([xshift=1.5cm, yshift=1.5cm]current page.west) {Computation of};
+        \node[anchor=west, text=white, font=\LARGE\bfseries\rmfamily] at ([xshift=1.5cm, yshift=0.6cm]current page.west) {Conformal Mappings};
+        
+        \node[anchor=west, text=brightblue, font=\large\sffamily] at ([xshift=1.5cm, yshift=-0.5cm]current page.west) {Schwarz-Christoffel Integrals};
+        \node[anchor=west, text=brightblue, font=\large\sffamily] at ([xshift=1.5cm, yshift=-1.1cm]current page.west) {and Numerical Methods};
+        
+        \node[anchor=west, text=white!70, font=\small\sffamily] at ([xshift=1.5cm, yshift=-3cm]current page.west) {Ravi Kumar \quad | \quad 22MA10047};
+        \node[anchor=west, text=white!50, font=\footnotesize\sffamily] at ([xshift=1.5cm, yshift=-3.6cm]current page.west) {DEPARTMENT OF MATHEMATICS \quad | \quad IIT KHARAGPUR};
+    \end{tikzpicture}
+\end{frame}
+
+% Slide 2: Geometric Foundation
+\begin{frame}{Geometric Foundation}
+    \vfill
+    \begin{columns}[c]
+        \column{0.55\textwidth}
+        \begin{premiumbox}{Conformal Property}
+            \small If $w = f(z)$ is analytic and $f'(z) \neq 0$, infinitesimal figures are rotated and scaled but not sheared, preserving local angles.
+        \end{premiumbox}
+        \vspace{4mm}
+        \textbf{\color{brightblue}Core Utility} \\
+        \footnotesize Transforms complex physical boundaries into canonical domains where Laplace's equation $\nabla^2 \phi = 0$ is easier to solve.
+        \column{0.45\textwidth}
+        \begin{center}
+            \includegraphics[width=\textwidth]{ppt_img-000.png}
+        \end{center}
+    \end{columns}
+\end{frame}
+
+% Slide 3: SC Mapping Revisited
+\begin{frame}{Schwarz-Christoffel Mapping Revisited}
+    \vfill
+    \begin{center}
+        \Large \[ w(z) = C_1 \int^z \prod_{k=1}^{n} (\zeta - x_k)^{-\alpha_k} \, d\zeta + C_2 \]
+    \end{center}
+    \vfill
+    \begin{columns}[c]
+        \column{0.6\textwidth}
+        \begin{itemize}
+            \item \textbf{\color{brightblue}Angle Parameters}: $\alpha_k = 1 - \theta_k/\pi$, interior angle $\theta_k$.
+            \item \textbf{\color{brightblue}Boundary Correspondence}: Real axis maps to polygon boundary.
+            \item \textbf{\color{brightblue}Argument Change}: $\arg(dw/dz)$ shifts by $\alpha_k \pi$ at each $x_k$.
+        \end{itemize}
+        \column{0.4\textwidth}
+        \begin{center}
+            \includegraphics[width=\textwidth]{ppt_img-001.png}
+        \end{center}
+    \end{columns}
+\end{frame}
+
+% Slide 4: The Numerical Parameter Problem (3-Column Style)
+\begin{frame}{The Numerical Parameter Problem}
+    \vfill
+    \begin{columns}[c]
+        \column{0.3\textwidth}
+        \textbf{\color{brightblue}The Core Issue} \\
+        \footnotesize Side lengths depend on prevertex spacing $x_k$ on the real axis.
+        \vfill
+        \textbf{\color{brightblue}Degrees of Freedom} \\
+        \footnotesize $n-3$ essential unknowns after normalization.
+        
+        \column{0.4\textwidth}
+        \begin{premiumbox}{Residual Equations}
+            \centering $F_j(X) = I_j(X) - \lambda_j I_1(X) = 0$
+        \end{premiumbox}
+        
+        \column{0.3\textwidth}
+        \textbf{\color{brightblue}Möbius Normalization} \\
+        \footnotesize Three prevertices fixed arbitrarily (e.g., $-1, 0, 1$).
+        \vfill
+        \textbf{\color{brightblue}Geometric Constraint} \\
+        \footnotesize Ordering $x_1 < x_2 < \dots < x_n$.
+    \end{columns}
+\end{frame}
+
+% Slide 5: Newton Iteration
+\begin{frame}{Solving the Parameter Problem: Newton Iteration}
+    \vfill
+    \begin{center}
+        \Large \[ x^{(m+1)} = x^{(m)} + \eta h^{(m)}, \quad J(x^{(m)})h^{(m)} = -F(x^{(m)}) \]
+    \end{center}
+    \vfill
+    \begin{itemize}
+        \item \textbf{Linearization}: Jacobian $J_{j\nu}$ computed for each step.
+        \item \textbf{Stopping Criteria}: Residual norm $\|F\| < 10^{-8}$.
+        \item \textbf{Damping Factor}: $0 < \eta \le 1$ to preserve prevertex ordering.
+    \end{itemize}
+\end{frame}
+
+% Slide 6: Singularity Removal
+\begin{frame}{Numerical Integration: Singularity Removal}
+    \vfill
+    \begin{columns}[c]
+        \column{0.55\textwidth}
+        \begin{premiumbox}{Kantorovich Regularization}
+            \[ F(\zeta) = \frac{A_k}{(\zeta - x_k)^{\alpha_k}} + \frac{B_{k+1}}{(x_{k+1} - \zeta)^{\alpha_{k+1}}} + R(\zeta) \]
+        \end{premiumbox}
+        \vfill
+        \footnotesize Smooth remainder $R(\zeta)$ evaluated via standard quadrature.
+        \column{0.45\textwidth}
+        \begin{center}
+            \includegraphics[width=\textwidth]{ppt_img-002.png}
+        \end{center}
+    \end{columns}
+\end{frame}
+
+% Slide 7: Bieberbach Principle
+\begin{frame}{Extremal Principles: Minimizing Principle}
+    \vfill
+    \begin{columns}[c]
+        \column{0.55\textwidth}
+        \textbf{\color{navy}Variational Characterization} \\
+        \small Riemann map derivative uniquely achieves minimum image area.
+        \vfill
+        \begin{premiumbox}{Minimization Target}
+            $I = \iint_D |f'(z)|^2 \, dS_z$ s.t. $f(a) = 1$.
+        \end{premiumbox}
+        \column{0.45\textwidth}
+        \begin{center}
+            \includegraphics[width=\textwidth]{ppt_img-003.png}
+        \end{center}
+    \end{columns}
+\end{frame}
+
+% Slide 8: Bergman Kernel
+\begin{frame}{The Bergman Kernel Method}
+    \vfill
+    \begin{premiumbox}{Reproducing Property}
+        $\iint_D K(z, \zeta) f(\zeta) \, dS_\zeta = f(z)$
+    \end{premiumbox}
+    \vfill
+    \begin{itemize}
+        \item \textbf{Orthonormal Basis}: $K(z, \zeta) = \sum_{j} \phi_j(z) \overline{\phi_j(\zeta)}$.
+        \item \textbf{Recovery}: $f(z) = \frac{1}{\sqrt{K(a,a)}} \int_a^z K(\zeta, a) \, d\zeta$.
+    \end{itemize}
+\end{frame}
+
+% Slide 9: Applications
+\begin{frame}{Applications: Potential Theory \& Fluid Flow}
+    \vfill
+    \begin{columns}[c]
+        \column{0.55\textwidth}
+        \begin{itemize}
+            \item \textbf{Potential Theory}: Fields preserved under $\nabla^2 \phi = 0$.
+            \item \textbf{Fluid Flow}: Orthogonality of streamlines.
+            \item \textbf{Aerodynamics}: Airfoil mapping from canonical cylinders.
+        \end{itemize}
+        \column{0.45\textwidth}
+        \begin{center}
+            \includegraphics[width=\textwidth]{ppt_img-004.png}
+        \end{center}
+    \end{columns}
+\end{frame}
+
+% Slide 10: Conclusion
+\begin{frame}{Grid Generation \& Conclusion}
+    \vfill
+    \begin{columns}[t]
+        \column{0.48\textwidth}
+        \textbf{\color{brightblue}Computational Grid Generation}
+        \begin{itemize}
+            \item Boundary-fitted orthogonal coordinate curves.
+            \item Essential for CFD and structural stability.
+        \end{itemize}
+        \column{0.48\textwidth}
+        \textbf{\color{navy}Project Summary}
+        \begin{itemize}
+            \item SC formula construction and numerical iteration.
+            \item Variational alternatives via Bergman kernels.
+        \end{itemize}
+    \end{columns}
+    \vfill
+    \begin{center}
+        \Large \color{navy} \textbf{Thanks!!}
+    \end{center}
+\end{frame}
+
+\end{document}
