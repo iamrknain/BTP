@@ -23,7 +23,7 @@ The final phase shifted focus from theoretical derivation to the practical chall
 To generate the PDF from LaTex on Linux:
 
 ```bash
-pdflatex -interaction=nonstopmode BTP-2/final_report.tex 2>&1 | tail -20
+pdflatex -interaction=nonstopmode final_report.tex 2>&1 | tail -20
 ```
 
 ---
