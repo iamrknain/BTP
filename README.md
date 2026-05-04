@@ -28,3 +28,4 @@ pdflatex -interaction=nonstopmode final_report.tex 2>&1 | tail -20
 
 ---
 *Submitted for the degree of Bachelor of Science (Honours) in Mathematics and Computing, Department of Mathematics, IIT Kharagpur (2025--2026).*
+
